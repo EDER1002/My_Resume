@@ -88,13 +88,14 @@ export function initReveals(env) {
     });
   });
 
+  // opacity (not visibility) so not-yet-revealed links stay reachable with the keyboard
   const blocks = gsap.utils.toArray('[data-reveal]');
-  gsap.set(blocks, { autoAlpha: 0, y: 34 });
+  gsap.set(blocks, { opacity: 0, y: 34 });
   ScrollTrigger.batch(blocks, {
     start: 'top 92%',
     once: true,
     onEnter: (batch) =>
-      gsap.to(batch, { autoAlpha: 1, y: 0, duration: 0.95, ease: 'power3.out', stagger: 0.08, overwrite: true }),
+      gsap.to(batch, { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out', stagger: 0.08, overwrite: true }),
   });
 
   // Project cards fly in with a 3D rotation, then float with a light parallax
@@ -102,9 +103,9 @@ export function initReveals(env) {
   cards.forEach((card, i) => {
     gsap.fromTo(
       card,
-      { autoAlpha: 0, rotateX: 32, rotateY: i % 2 ? -22 : 22, z: -260, y: 80 },
+      { opacity: 0, rotateX: 32, rotateY: i % 2 ? -22 : 22, z: -260, y: 80 },
       {
-        autoAlpha: 1,
+        opacity: 1,
         rotateX: 0,
         rotateY: 0,
         z: 0,
@@ -115,6 +116,14 @@ export function initReveals(env) {
         scrollTrigger: { trigger: card, start: 'top 92%', once: true },
       },
     );
+  });
+
+  // Keyboard users tabbing ahead of the scroll animations see the element immediately
+  document.addEventListener('focusin', (e) => {
+    const el = e.target.closest?.('[data-reveal], [data-reveal-card]');
+    if (el && Number(getComputedStyle(el).opacity) < 1) {
+      gsap.to(el, { opacity: 1, y: 0, rotateX: 0, rotateY: 0, z: 0, duration: 0.4, overwrite: true });
+    }
   });
 
   if (!env.isMobile) {

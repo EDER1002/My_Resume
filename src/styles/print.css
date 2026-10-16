@@ -12,6 +12,36 @@
     --line-strong: #bbb;
   }
 
+  * {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  .eyebrow,
+  .kicker,
+  .milestone__period,
+  .project-card__kind,
+  .project-card__kind span,
+  .research-card__type,
+  .research-card__role,
+  .lang-card__level,
+  .score strong,
+  .contact__label,
+  .badge,
+  .hero__meta .icon {
+    color: #333 !important;
+  }
+
+  .badge {
+    border: 0;
+    background: none;
+    padding: 0;
+  }
+
+  .badge::before {
+    display: none;
+  }
+
   html,
   body {
     background: #fff !important;
