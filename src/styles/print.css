@@ -1,0 +1,268 @@
+/* Printing the page gives a clean, single-column, black-on-white resume. */
+@media print {
+  @page {
+    margin: 14mm 14mm 16mm;
+  }
+
+  :root {
+    --text: #111;
+    --muted: #444;
+    --faint: #555;
+    --line: #ccc;
+    --line-strong: #bbb;
+  }
+
+  * {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  .eyebrow,
+  .kicker,
+  .milestone__period,
+  .project-card__kind,
+  .project-card__kind span,
+  .research-card__type,
+  .research-card__role,
+  .lang-card__level,
+  .score strong,
+  .contact__label,
+  .badge,
+  .hero__meta .icon {
+    color: #333 !important;
+  }
+
+  .badge {
+    border: 0;
+    background: none;
+    padding: 0;
+  }
+
+  .badge::before {
+    display: none;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .webgl,
+  .backdrop,
+  .cursor,
+  .loader,
+  .skip-link,
+  .site-header,
+  .scroll-cue,
+  .hero__actions,
+  .about__photo,
+  .tag-sphere,
+  .carousel,
+  .project-card__media,
+  .project-card__links,
+  .research-card__figure,
+  .research-card__links,
+  .link-btn,
+  .contact .btn,
+  .viewer,
+  .eyebrow::after,
+  .education__rail {
+    display: none !important;
+  }
+
+  .section,
+  .education,
+  .education__sticky {
+    display: block !important;
+    min-height: 0 !important;
+    height: auto !important;
+    position: static !important;
+    padding: 0 0 14pt !important;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  .panel,
+  .project-card__inner,
+  .fact,
+  .score,
+  .contact__row {
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  .hero {
+    padding: 0 0 10pt !important;
+  }
+
+  .hero__title {
+    font-size: 22pt;
+    max-width: none;
+  }
+
+  .hero__title .hero__line {
+    display: inline;
+  }
+
+  .hero__title .hero__line + .hero__line::before {
+    content: ' ';
+  }
+
+  .hero__line--accent,
+  .fact strong,
+  .milestone__year,
+  .loader__mark,
+  .project-card__placeholder span {
+    background: none !important;
+    color: #111 !important;
+    -webkit-text-fill-color: #111;
+  }
+
+  .split-char,
+  .split-word__inner,
+  [data-reveal],
+  [data-hero-fade],
+  .milestone,
+  .project-card,
+  .project-card__inner {
+    opacity: 1 !important;
+    transform: none !important;
+    color: inherit !important;
+  }
+
+  .kicker,
+  .eyebrow__index,
+  .nav__index {
+    display: none;
+  }
+
+  .section-head {
+    margin-bottom: 6pt;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: #111;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .section-title {
+    font-size: 12pt;
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: #444;
+  }
+
+  .about__grid,
+  .skills__layout,
+  .languages__layout,
+  .research__grid,
+  .research-card--featured,
+  .projects__grid {
+    display: block !important;
+  }
+
+  .facts {
+    display: none;
+  }
+
+  .timeline {
+    padding-left: 0;
+    gap: 6pt;
+  }
+
+  .timeline::before,
+  .milestone::before {
+    display: none;
+  }
+
+  .milestone__year {
+    display: inline;
+    font-size: 10.5pt;
+    margin-right: 6pt;
+  }
+
+  .project-card,
+  .research-card,
+  .lang-card,
+  .milestone {
+    break-inside: avoid;
+    margin-bottom: 8pt;
+  }
+
+  .tags li,
+  .chips li {
+    border: 0;
+    background: none;
+    color: #333;
+    padding: 0;
+    font-size: 9pt;
+  }
+
+  .tags li + li::before,
+  .chips li + li::before {
+    content: '· ';
+  }
+
+  .tags,
+  .chips {
+    gap: 4pt;
+  }
+
+  .scores {
+    display: flex;
+    gap: 10pt;
+  }
+
+  .cert-list {
+    display: block;
+    padding-left: 14pt;
+    list-style: decimal;
+  }
+
+  .cert-list li {
+    margin-bottom: 3pt;
+  }
+
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 8.5pt;
+    color: #555;
+    word-break: break-all;
+  }
+
+  .contact__row::after {
+    content: none !important;
+  }
+
+  .contact__row {
+    display: flex !important;
+    gap: 8pt;
+  }
+
+  .contact__row .icon {
+    display: none;
+  }
+
+  .footer {
+    border: 0;
+    background: none;
+    padding: 0;
+  }
+
+  .footer a::after {
+    content: none;
+  }
+}
