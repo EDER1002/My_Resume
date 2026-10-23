@@ -90,11 +90,11 @@ function render(doc, s) {
   // ---------------- Projects ----------------
   heading('Projects');
   resume.projects.forEach((pr, i) => {
-    if (i) doc.moveDown(0.3 * s);
+    if (i) doc.moveDown(0.25 * s);
     const links = pr.links.filter((l) => !isPlaceholder(l.url)).map((l) => stripUrl(l.url));
-    entry(pr.name, ` — ${pr.kind}${pr.status ? ` (${pr.status.toLowerCase()})` : ''}`);
-    bullet(pr.summary);
-    bullet(`Keywords: ${pr.tags.join(', ')}${links.length ? ` | ${links.join(' | ')}` : ''}`);
+    // Name + stack on one line, then one bullet with the description and links
+    entry(pr.name, ` — ${pr.tags.join(', ')}${pr.status ? ` (${pr.status.toLowerCase()})` : ''}`);
+    bullet(`${pr.short || pr.summary}${links.length ? ` ${links.join(' | ')}` : ''}`);
   });
 
   // ---------------- Research & hackathons ----------------
@@ -105,8 +105,7 @@ function render(doc, s) {
     const links = (r.links || []).filter((l) => !isPlaceholder(l.url)).map((l) => stripUrl(l.url));
     if (r.featured) {
       bullet(r.text);
-      bullet(r.details);
-      bullet(`Keywords: ${r.tags.join(', ')}${links.length ? ` | ${links.join(' | ')}` : ''}`);
+      bullet(`${r.details} Keywords: ${r.tags.join(', ')}${links.length ? ` | ${links.join(' | ')}` : ''}`);
     } else if (r.type === 'Research') {
       bullet(r.text);
     }

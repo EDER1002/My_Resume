@@ -83,14 +83,43 @@ export const resume = {
   projects: [
     {
       name: 'UDES FoodPass',
-      kind: 'Web app',
-      status: 'In progress',
+      kind: 'Full-stack web app · Software Design I',
+      // `short` is used in the one-page PDF; the site shows summary + details
+      short:
+        'Lunch reservation platform for the UDES cafeteria with single-use QR tickets, online payments (sandbox, Strategy pattern) or student subsidy, and an admin panel; 110 backend tests and 25 end-to-end tests.',
       summary:
-        'Web app for university meal tickets and orders. Separate frontend and backend; availability, prices, reservations and ticket validation are enforced server-side.',
-      details: 'Payment gateway integration (Wompi / ePayco) in progress.',
-      tags: ['Frontend + Backend', 'Server-side validation', 'Wompi / ePayco'],
-      image: null,
-      links: [{ label: 'Repository', url: '[REPO_URL]' }],
+        'Responsive platform to reserve and claim lunches at the UDES cafeteria with a single-use QR ticket: daily menu with live portions, online payment or student subsidy, and an admin panel for menus, schedules, accounts and QR validation.',
+      details:
+        'Layered architecture with four modules (auth, menu, reservations & payments, QR validation); Strategy pattern for payment methods (Nequi, PSE, card) running in sandbox with an optional Wompi test mode, idempotent payment retries and HMAC-signed webhooks. 110 backend tests plus 25 end-to-end browser tests with WCAG 2.2 AA checks.',
+      tags: ['React', 'Vite', 'Node.js', 'Express', 'PostgreSQL', 'Docker', 'JWT', 'Vitest', 'Playwright'],
+      image: { src: 'images/projects/udes-foodpass.webp', alt: 'UDES FoodPass reservation flow on mobile: choose your lunch, pay or apply your subsidy, and claim it with a QR ticket' },
+      links: [{ label: 'Repository', url: 'https://github.com/EDER1002/UDES-FoodPass' }],
+    },
+    {
+      name: 'UDES Seismograph',
+      kind: 'IoT · Real-time web system',
+      short:
+        'ESP32 + MPU6050 sensor streaming to a Node.js server (Socket.IO, SQLite) and a React dashboard with a live chart, 3D globe and SMS alerts.',
+      summary:
+        'Real-time seismic monitoring system for Universidad de Santander: an ESP32 with an MPU6050 sensor streams acceleration over serial to a Node.js server that filters noise, stores readings and pushes them live to a React dashboard.',
+      details:
+        'Live seismic chart, 3D globe with alert waves, SMS alerts (Twilio) for registered users, Excel export and an admin panel to monitor the device. Includes a mock data source to develop without hardware.',
+      tags: ['ESP32', 'Arduino', 'Node.js', 'Express', 'Socket.IO', 'SQLite', 'React', 'TypeScript', 'Three.js', 'Tailwind CSS'],
+      image: { src: 'images/projects/sismografo-udes.webp', alt: 'UDES Seismograph dashboard showing the live acceleration chart during a simulated seismic alert' },
+      links: [{ label: 'Repository', url: 'https://github.com/EDER1002/SISTEMA_UDES_SISMOGRAFO' }],
+    },
+    {
+      name: 'PHP-SEC',
+      kind: 'Security tool · Open source',
+      short:
+        'Standard-library Python scanner for PHP code (SQLi, XSS, SSRF, LFI/RFI…) and live URLs (headers, cookies, CSRF, exposed files) with JSON output; CI on Linux, Windows and macOS.',
+      summary:
+        'Hybrid security scanner for PHP written in Python using only the standard library: static rules for eval, command execution, SQL injection, XSS, SSRF, LFI/RFI and weak hashes, plus a live-URL mode that checks headers, cookies, CSRF tokens and exposed files.',
+      details:
+        'Same JSON report in every mode (for people, scripts or an AI agent), a local server with a Firefox bookmarklet, and automated tests on Linux, Windows and macOS through GitHub Actions.',
+      tags: ['Python', 'SAST', 'DAST', 'CWE', 'GitHub Actions', 'Firefox'],
+      image: { src: 'images/projects/php-sec.webp', alt: 'PHP-SEC terminal output listing critical, high and medium findings for a sample PHP file' },
+      links: [{ label: 'Repository', url: 'https://github.com/EDER1002/PHP-SEC' }],
     },
     {
       name: 'YTM Ad Skipper',
@@ -131,18 +160,18 @@ export const resume = {
 
   skills: {
     groups: [
-      { name: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'] },
-      { name: 'Backend & languages', items: ['Java', 'Python', 'JavaScript'] },
-      { name: 'Databases', items: ['SQL', 'MySQL (relational)', 'NoSQL (non-relational)'] },
+      { name: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Bootstrap'] },
+      { name: 'Backend & languages', items: ['Java', 'Python', 'JavaScript', 'Node.js', 'Express'] },
+      { name: 'Databases', items: ['SQL', 'MySQL', 'PostgreSQL (relational)', 'NoSQL (non-relational)'] },
       {
         name: 'Data & AI',
         items: ['Python data libraries', 'Data analysis', 'Unsupervised ML (clustering)', 'Algorithms: Minimax, greedy'],
       },
-      { name: 'Tools', items: ['Git', 'GitHub', 'Linux (Arch Linux)'] },
+      { name: 'Tools', items: ['Git', 'GitHub', 'Docker', 'Linux (Arch Linux)'] },
     ],
     // Labels floating in the draggable 3D sphere (no levels or percentages on purpose).
     cloud: [
-      'HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Java', 'Python', 'SQL', 'MySQL', 'NoSQL',
+      'HTML5', 'CSS3', 'JavaScript', 'React', 'Bootstrap', 'Java', 'Python', 'Node.js', 'SQL', 'MySQL', 'PostgreSQL', 'NoSQL', 'Docker',
       'Git', 'GitHub', 'Linux', 'Arch Linux', 'Data Analysis', 'Clustering', 'Unsupervised ML',
       'Minimax', 'Greedy Algorithms', 'Python Data Libs',
     ],
