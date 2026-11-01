@@ -90,10 +90,26 @@ export const resume = {
       summary:
         'Responsive platform to reserve and claim lunches at the UDES cafeteria with a single-use QR ticket: daily menu with live portions, online payment or student subsidy, and an admin panel for menus, schedules, accounts and QR validation.',
       details:
-        'Layered architecture with four modules (auth, menu, reservations & payments, QR validation); Strategy pattern for payment methods (Nequi, PSE, card) running in sandbox with an optional Wompi test mode, idempotent payment retries and HMAC-signed webhooks. 110 backend tests plus 25 end-to-end browser tests with WCAG 2.2 AA checks.',
+        'Layered architecture with four modules (auth, menu, reservations & payments, QR validation); Strategy pattern for payment methods (Nequi, PSE, card) running in sandbox with an optional Wompi test mode, idempotent payment retries and HMAC-signed webhooks, password recovery and a built-in help assistant (no external AI). 110 backend tests plus 25 end-to-end browser tests with WCAG 2.2 AA checks.',
       tags: ['React', 'Vite', 'Node.js', 'Express', 'PostgreSQL', 'Docker', 'JWT', 'Vitest', 'Playwright'],
       image: { src: 'images/projects/udes-foodpass.webp', alt: 'UDES FoodPass reservation flow on mobile: choose your lunch, pay or apply your subsidy, and claim it with a QR ticket' },
       links: [{ label: 'Repository', url: 'https://github.com/EDER1002/UDES-FoodPass' }],
+    },
+    {
+      name: 'Konys Reservas',
+      kind: 'Web app · Deployed · Real business',
+      short:
+        'Table-booking app for Konys Pizza (Bucaramanga): live table availability, double-booking prevented in the browser and in the database, admin panel; Supabase with RLS, CSP and per-IP limits.',
+      summary:
+        'Table-booking web app for Konys Pizza, a real restaurant in Bucaramanga: customers see the tables, pick a date and a free time slot and confirm without calling; the admin manages tables, opening hours, bookings and the menu.',
+      details:
+        'Double bookings are blocked both in the browser and by database rules, so it holds even with simultaneous confirmations. Security-reviewed: server-side validation, least-privilege Row Level Security, per-IP booking limits and Content Security Policy. Automated tests for slot logic and database rules; auto-deployed on Vercel.',
+      tags: ['JavaScript', 'HTML', 'CSS', 'Supabase', 'PostgreSQL', 'RLS', 'Vercel'],
+      image: { src: 'images/projects/konys-pizza.webp', alt: 'Konys Pizza booking site home page with the "Reserve your table" button' },
+      links: [
+        { label: 'Repository', url: 'https://github.com/EDER1002/Konny-s_Pizza' },
+        { label: 'Live demo', url: 'https://konys-pizza.vercel.app' },
+      ],
     },
     {
       name: 'UDES Seismograph',
@@ -148,6 +164,7 @@ export const resume = {
     },
     {
       name: 'Tic-Tac-Toe (Triqui)',
+      pdf: false, // shown on the site only, to keep the PDF on one readable page
       kind: 'Browser game',
       summary:
         'Browser game in HTML, CSS, JavaScript and Bootstrap with a 1 vs 1 mode and a vs-computer mode powered by the Minimax algorithm.',
@@ -162,16 +179,16 @@ export const resume = {
     groups: [
       { name: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Bootstrap'] },
       { name: 'Backend & languages', items: ['Java', 'Python', 'JavaScript', 'Node.js', 'Express'] },
-      { name: 'Databases', items: ['SQL', 'MySQL', 'PostgreSQL (relational)', 'NoSQL (non-relational)'] },
+      { name: 'Databases', items: ['SQL', 'MySQL', 'PostgreSQL (relational)', 'Supabase', 'NoSQL (non-relational)'] },
       {
         name: 'Data & AI',
         items: ['Python data libraries', 'Data analysis', 'Unsupervised ML (clustering)', 'Algorithms: Minimax, greedy'],
       },
-      { name: 'Tools', items: ['Git', 'GitHub', 'Docker', 'Linux (Arch Linux)'] },
+      { name: 'Tools', items: ['Git', 'GitHub', 'GitHub Actions', 'Docker', 'Vercel', 'Linux (Arch Linux)'] },
     ],
     // Labels floating in the draggable 3D sphere (no levels or percentages on purpose).
     cloud: [
-      'HTML5', 'CSS3', 'JavaScript', 'React', 'Bootstrap', 'Java', 'Python', 'Node.js', 'SQL', 'MySQL', 'PostgreSQL', 'NoSQL', 'Docker',
+      'HTML5', 'CSS3', 'JavaScript', 'React', 'Bootstrap', 'Java', 'Python', 'Node.js', 'SQL', 'MySQL', 'PostgreSQL', 'Supabase', 'NoSQL', 'Docker',
       'Git', 'GitHub', 'Linux', 'Arch Linux', 'Data Analysis', 'Clustering', 'Unsupervised ML',
       'Minimax', 'Greedy Algorithms', 'Python Data Libs',
     ],

@@ -89,7 +89,7 @@ function render(doc, s) {
 
   // ---------------- Projects ----------------
   heading('Projects');
-  resume.projects.forEach((pr, i) => {
+  resume.projects.filter((pr) => pr.pdf !== false).forEach((pr, i) => {
     if (i) doc.moveDown(0.25 * s);
     const links = pr.links.filter((l) => !isPlaceholder(l.url)).map((l) => stripUrl(l.url));
     // Name + stack on one line, then one bullet with the description and links
